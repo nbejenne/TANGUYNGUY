@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :spots, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  validates :first_name, :last_name, :nickname, :email, :password, presence: true
-  validates :email, :nickname, uniqueness: true
-  validates_format_of :email, with: Devise::email_regexp
+
+  # validates :first_name, :last_name, :nickname, presence: true
+  # validates :nickname, uniqueness: true
 end
