@@ -1,0 +1,13 @@
+<h1>Spot</h1>
+
+<%= @spot.name %>
+<%= @spot.description %>
+<%= @spot.address %>
+
+
+<%= simple_form_for [@spot, @booking] do |f| %>
+ <%= f.input :starts_at %>
+ <%= f.input :ends_at %>
+ <%= f.submit "Book this spot", class: "btn btn-primary" %>
+<% end %>
+
