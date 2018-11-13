@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+
   end
 
   def create
@@ -17,6 +18,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+
   end
 
   private
@@ -24,5 +26,6 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:starts_at, :ends_at)
   end
+
 
 end
