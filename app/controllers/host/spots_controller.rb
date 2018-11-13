@@ -15,7 +15,6 @@ class Host::SpotsController < ApplicationController
     @spot.user = current_user
     if @spot.save
       flash[:notice] = 'Successfully created spot.'
-
       redirect_to spot_path
     else
       render :new
