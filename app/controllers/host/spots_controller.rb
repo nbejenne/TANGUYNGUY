@@ -7,12 +7,13 @@ class Host::SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
+     @spot_feature = SpotFeature.new
   end
 
   def create
     @spot = Spot.new(spot_params)
     @spot.user = current_user
-    if @project.save
+    if @spot.save
       flash[:notice] = 'Successfully created spot.'
 
       redirect_to spot_path
@@ -32,7 +33,7 @@ class Host::SpotsController < ApplicationController
 
   private
 
-  def review_params
+  def spot_params
     params.require(:spot).permit(:name, :description, :address, :photo, features_attributes: [:feature, :_destroy])
   end
 end
