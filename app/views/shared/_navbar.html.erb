@@ -6,22 +6,28 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Spots</a>
+    <%= link_to 'Hosting',  host_spots_path, class:"navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to 'Squating',  bookings_path, class:"navbar-wagon-item navbar-wagon-link" %>
     <a href="" class="navbar-wagon-item navbar-wagon-link">About</a>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Help</a>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
-      </div>
+
+      <% if user_signed_in? %>
+        <div class="dropdown">
+           <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <%#=
+          'cl_image_tag(current_user.avatar, class: "avatar dropdown-toggle", id: "navbar-wagon-menu")'  %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+          </ul>
+        </div>
+      <% else %>
+        <%= link_to 'sign in/register',  new_user_session_path, class:"navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
     </div>
   </div>
 
