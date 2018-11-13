@@ -6,5 +6,6 @@ class Spot < ApplicationRecord
                                 allow_destroy: true
   has_many :bookings, dependent: :destroy
   validates :description, :address, :name, presence: true
+  mount_uploader :photo, PhotoUploader
 
 end

@@ -3,6 +3,7 @@
   <%= f.input :description %>
   <%= f.input :address %>
   <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
 
   <div id="feature">
     <%= f.simple_fields_for :features, SpotFeature.new do |sf| %>
