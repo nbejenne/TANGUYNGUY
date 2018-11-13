@@ -1,0 +1,12 @@
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=  spot.photo.nil? ? cl_image_path(spot.photo) : 'http://www.icône.com/images/icones/6/0/go-home-5.png' %>);">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2><%= spot.name %></h2>
+    <!-- <p>Very cool city, the best</p> -->
+  </div>
+  <%= spot.user.avatar.nil? ? cl_image_tag(spot.user.avatar(:avatar)) : 'http://www.icône.com/images/icones/6/0/go-home-5.png' %>
+  <%= link_to '', spot_path(spot) %>
+</div>
+
+
+

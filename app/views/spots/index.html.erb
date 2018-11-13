@@ -1,6 +1,13 @@
-<h1>Spots</h1>
+<%= render 'shared/navbar' %>
 
-<% @spots.each do |spot| %>
-  <%=link_to spot.name, spot_path(spot) %>
-<%end %>
+<div class="container">
+   <div class="row">
+    <% @spots.each do |spot| %>
+      <div class="col-xs-12 col-sm-4">
+          <%= render 'shared/spot_card', spot: spot %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'shared/footer' %>
 
