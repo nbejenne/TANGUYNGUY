@@ -1,0 +1,18 @@
+<%= simple_form_for [:host, @spot] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :photo %>
+
+  <div id="feature">
+    <%= f.simple_fields_for :features, SpotFeature.new do |sf| %>
+      <!-- Task: <%#= task.text_field :name %> -->
+       <%#= render 'feature_spot_fields', f: sf %>
+      <div class="links">
+        <%#= link_to_add_association '+', f, :feature %>
+      </div>
+    <% end %>
+  </div>
+  <%= f.submit 'Create Project' %>
+<% end %>
+
