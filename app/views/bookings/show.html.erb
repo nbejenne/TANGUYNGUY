@@ -1,0 +1,23 @@
+<h1>Booking</h1>
+
+<p> <%= @booking.spot.name %></p>
+<p><%= @booking.spot.description %></p>
+<p><%= @booking.spot.address %></p>
+
+<p> <strong> Arrival date :</strong> <%= @booking.starts_at %> </p>
+<p> <strong> Departure date :</strong> <%= @booking.ends_at %> </p>
+
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Add a review
+</button>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+    <%= simple_form_for(@booking, url: booking_reviews_path(@booking), method: :post) do |f| %>
+      <%= f.input :review %>
+      <%= f.input :rating %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
