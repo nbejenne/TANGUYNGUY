@@ -4,6 +4,14 @@
 <%= @spot.description %>
 <%= @spot.address %>
 
+<% @spot.bookings.reviewed.each do |booking| %>
+  <p>
+    <%= "⭐️" * booking.rating if booking.rating %>
+    <br>
+    <%= booking.review %>
+  </p>
+<% end %>
+
 
 <%= simple_form_for [@spot, @booking] do |f| %>
  <%= f.input :starts_at %>
