@@ -19,6 +19,7 @@ user_attributes = [
 last_name: 'La Fripouille',
 nickname: 'Jakar',
 email: 'jacouille@gmail.com',
+remote_avatar_url: 'https://images.midilibre.fr/api/v1/images/view/5b4871eb8fe56f24d34ceebe/large/image.jpg',
 password:'azerty'},
 {first_name: 'Gérard',
 last_name: 'Depardieu',

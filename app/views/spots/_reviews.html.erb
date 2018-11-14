@@ -1,6 +1,6 @@
 <% spot.bookings.reviewed.each do |booking| %>
   <div class="message">
-   <%= cl_image_tag(booking.user.avatar) %>
+   <%= cl_image_tag booking.user.avatar, class: "avatar-large" %>
     <div class="message-name">
       <h3><%= booking.user.nickname %></h3>
       <p><%= booking.starts_at.strftime("%d/%m/%Y") %></p>
