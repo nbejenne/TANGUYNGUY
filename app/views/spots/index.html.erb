@@ -1,14 +1,8 @@
 <%= render 'shared/navbar' %>
 <%= render 'shared/banner' %>
 
-<div class="container">
-   <div class="row">
-    <% @spots.each do |spot| %>
-      <div class="col-xs-12 col-sm-4">
-          <%= render 'shared/spot_card', spot: spot %>
-      </div>
-    <% end %>
-  </div>
-</div>
+
+<%= render 'shared/spot_card'%>
+
 <%= render 'shared/footer' %>
 
