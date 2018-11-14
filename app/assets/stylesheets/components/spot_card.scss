@@ -46,3 +46,11 @@
 .card-link:hover {
   opacity: 0.1;
 }
+
+.card--avatar img {
+  width: 50px;
+  border-radius: 50px;
+  position: absolute;
+  left: 81%;
+  top: 8%;
+}

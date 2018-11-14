@@ -4,9 +4,18 @@
     <h2><%= spot.name %></h2>
     <!-- <p>Very cool city, the best</p> -->
   </div>
-  <%= spot.user.avatar.nil? ? cl_image_tag(spot.user.avatar(:avatar)) : 'http://www.icône.com/images/icones/6/0/go-home-5.png' %>
+
+    <% if spot.user.avatar.present? %>
+      <%= cl_image_tag(spot.user.avatar) %>
+    <% else %>
+    <div class="card--avatar">
+      <%= image_tag('gg.jpg') %>
+    </div>
+    <% end %>
+
   <%= link_to '', spot_path(spot) %>
+  </div>
 </div>
 
 
-
+<!-- #spot.user.avatar.nil? ? -->
