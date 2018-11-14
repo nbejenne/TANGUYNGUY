@@ -1,0 +1,21 @@
+<% spot.bookings.reviewed.each do |booking| %>
+  <div class="message">
+   <%= cl_image_tag(booking.user.avatar) %>
+    <div class="message-name">
+      <h3><%= booking.user.nickname %></h3>
+      <p><%= booking.starts_at.strftime("%d/%m/%Y") %></p>
+    </div>
+    <div class="message-body">
+      <p>
+        <strong>
+          <% booking.rating.times do %>
+            <i class='fas fa-star'></i>
+          <% end %>
+        </strong>
+      </p>
+      <p>
+        <%= booking.review %>
+      </p>
+    </div>
+  </div>
+<% end %>
