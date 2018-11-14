@@ -1,0 +1,19 @@
+// Specific CSS for your home-page
+.date.required.form-control{
+display: inline-block;
+width: 30%;
+margin-right: 5px;
+}
+
+.form-wrapper {
+  background: white;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  border-radius: $border-radius-base;
+}
+
+.padded {
+  padding: 100px 0;
+}
+

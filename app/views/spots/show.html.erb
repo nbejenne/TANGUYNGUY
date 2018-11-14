@@ -1,21 +1,42 @@
-<h1>Spot</h1>
+<!-- nav -->
+<%= render 'shared/navbar' %>
+<!-- banner -->
+<%= render '/shared/spot_banner', spot: @spot %>
 
-<%= @spot.name %>
-<%= @spot.description %>
-<%= @spot.address %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2><%= @spot.address %></h2>
+      <p><%= @spot.description %></p>
+    </div>
+    <div class="col-md-4">
+      <div class="form-wrapper">
+        <%= simple_form_for [@spot, @booking] do |f| %>
+        <%= f.input :starts_at, as: :date  %>
+        <%= f.input :ends_at, as: :date %>
+        <%= f.submit "Book this spot", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col padded">
+      <%= render 'reviews', spot: @spot %>
+    </div>
+  </div>
+</div>
+<!-- footer -->
+<%= render 'shared/footer' %>
 
-<% @spot.bookings.reviewed.each do |booking| %>
-  <p>
-    <%= "⭐️" * booking.rating if booking.rating %>
-    <br>
-    <%= booking.review %>
-  </p>
-<% end %>
 
 
-<%= simple_form_for [@spot, @booking] do |f| %>
- <%= f.input :starts_at %>
- <%= f.input :ends_at %>
- <%= f.submit "Book this spot", class: "btn btn-primary" %>
-<% end %>
+<%# @spot.bookings.reviewed.each do |booking| %>
+  <!-- <p> -->
+    <%#= "⭐️" * booking.rating if booking.rating %>
+    <!-- <br> -->
+    <%#= booking.review %>
+  <!-- </p> -->
+<%# end %>
+
+
 
