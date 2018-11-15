@@ -1,15 +1,21 @@
 <%= render 'shared/navbar' %>
 <%= render 'shared/banner' %>
 
-<div class="container">
+<div class="row flexbox-wrapper">
   <div class="row">
-    <% @spots.each do |spot| %>
-      <div class="col-xs-12 col-md-4">
-        <%= render 'shared/spot_card', spot: spot %>
+      <div class="col-xs-8">
+          <div class="row">
+             <% @spots.each do |spot| %>
+                  <div class="col-md-4">
+                     <%= render 'shared/spot_card', spot: spot%>   
+                  </div>
+             <% end %>               
+          </div>
       </div>
-    <% end %>
+    <div class="col-xs-4">
+       <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>">
+    </div>
   </div>
 </div>
 
 <%= render 'shared/footer' %>
-

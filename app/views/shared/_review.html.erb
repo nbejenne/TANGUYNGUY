@@ -1,0 +1,21 @@
+<div class="message">
+  <%= image_tag booking.user.avatar.url(:avatar), class: "avatar-large" %>
+  <div class="message-name">
+    <h3> <%= booking.user.nickname %> </h3>
+    <p><%= booking.starts_at.strftime("%d/%m/%Y") %></p>
+  </div>
+  <div class="message-body">
+    <p>
+      <strong>
+        <% unless booking.rating.nil? %>
+          <% booking.rating.times do %>
+            <i class='fas fa-star'></i>
+          <% end %>
+        <% end %>
+      </strong>
+    </p>
+    <p>
+      <%= booking.review %>
+    </p>
+  </div>
+</div>

@@ -9,4 +9,13 @@ class Spot < ApplicationRecord
   validates :description, :address, :name, presence: true
   mount_uploader :photo, PhotoUploader
 
+  include PgSearch
+  pg_search_scope :search_by_address_and_name_and_description,
+    against: [:name, :address, :description],
+    using: {
+      tsearch: { prefix: true }
+    }
+                                  
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

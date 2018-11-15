@@ -7,7 +7,8 @@
   <div class="row padded">
     <div class="col-md-8">
       <h2><%= @spot.address %></h2>
-      <p><%= @spot.description %></p>
+      <p class="spot-description"><%= @spot.description %></p>
+      <%= link_to "Back home", root_path, class: "btn btn-warning" %>
     </div>
     <div class="col-md-4">
       <div class="form-wrapper">
@@ -25,6 +26,7 @@
     </div>
   </div>
 </div>
+<img alt='static Mapbox map of the San Francisco bay area' src="https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s+1f4287(<%= @spot.longitude %>,<%= @spot.latitude %>)/<%= @spot.longitude %>,<%= @spot.latitude %>,15.00/300x300@2x?access_token=pk.eyJ1IjoicHF1aW50cmllIiwiYSI6ImNqb2lnemY1cTAwa3Mzd3AyM3QwNXRzZWIifQ.p09r2dqaqMqk5uj4-4vk7w" >
 <!-- footer -->
 <%= render 'shared/footer' %>
 
