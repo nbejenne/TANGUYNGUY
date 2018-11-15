@@ -18,6 +18,8 @@ gem 'webpacker'
 
 gem 'faker'
 
+gem 'pg_search'
+
 gem 'devise'
 gem 'cocoon'
 gem 'carrierwave', '~> 1.2'

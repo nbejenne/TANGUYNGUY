@@ -2,9 +2,15 @@
   <div class="banner-content">
     <h1>I-shelter</h1>
     <p>Find a spot to take refuge</p>
-    <form class="form-inline">
-      <input type="text" class="form-control mb-2 mr-sm-2" id="search" placeholder="place, address..">
-      <button type="submit" class="btn btn-primary mb-2">Search</button>
-    </form>
+    <%= form_tag root_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a spot"
+      %>
+      <% if @spots.count == 0 %>
+        <%= "No spot found" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
