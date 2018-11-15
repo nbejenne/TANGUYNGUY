@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-
   def index
-    @bookings = Booking.all
+    @next_bookings = current_user.bookings.where("starts_at >= ?", Date.today)
+    @past_bookings = current_user.bookings.where("ends_at < ?", Date.today)
   end
 
   def show
@@ -12,8 +12,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.spot = Spot.find(params[:spot_id])
-    @booking.save
-    redirect_to booking_path(@booking)
+    if @booking.save
+
+      flash[:notice] = 'Successfully created booking.'
+      redirect_to booking_path(@booking)
+    else
+      render 'spots/show'
+    end
   end
 
   def update
