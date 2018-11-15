@@ -1,23 +1,24 @@
- <% @spots.each do |spot| %>
-  <div class="col-xs-12 col-md-4">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=  spot.photo.nil? ? cl_image_path(spot.photo) : spot.photo %>);">
-      <div class="card-description">
-        <h2><%= spot.name %></h2>
-        <!-- <p>Very cool city, the best</p> -->
-      </div>
-        <% if spot.user.avatar.present? %>
-          <%= cl_image_tag(spot.user.avatar) %>
-        <% else %>
-          <div class="card--avatar">
-            <%= image_tag('gg.jpg') %>
-          </div>
-        <% end %>
-      <%= link_to '', spot_path(spot), class: 'card-link' %>
-      </div>
-    </div>
-  </div>
-<% end %>
 
+  <div class="row">
+    <% @spots.each do |spot| %>
+      <div class="col-xs-12 col-md-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=  spot.photo.nil? ? cl_image_path(spot.photo) : spot.photo %>);">
+          <div class="card-description">
+            <h2><%= spot.name %></h2>
+            <!-- <p>Very cool city, the best</p> -->
+          </div>
+            <% if spot.user.avatar.present? %>
+              <%= cl_image_tag(spot.user.avatar) %>
+            <% else %>
+              <div class="card--avatar">
+                <%= image_tag('gg.jpg') %>
+              </div>
+            <% end %>
+          <%= link_to '', spot_path(spot), class: 'card-link' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 
 <!-- #spot.user.avatar.nil? ? -->
