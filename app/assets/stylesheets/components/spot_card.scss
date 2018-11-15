@@ -50,9 +50,20 @@
 }
 
 .card--avatar img {
-  width: 50px;
-  border-radius: 50px;
+  width: 40px;
+  border-radius: 40px;
   position: absolute;
   left: 81%;
   top: 8%;
 }
+
+.flexbox-wrapper {
+  display: flex;
+}
+
+#map {
+    flex: 0 0 450px;
+    height: 100vh;
+    position: sticky !important; /* !important to override Gmaps inline CSS */
+    top: 0 !important;
+  }
