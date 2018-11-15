@@ -143,6 +143,25 @@ picto: '*'}
 ]
 
 Feature.create!(feature_attributes)
+
+spot1 = Spot.new(
+  user: user1,
+  description: "Garage chauffé avec légère odeur de fioul",
+  remote_photo_url: 'https://res.cloudinary.com/dzcqmn55q/image/upload/v1542195026/garage-a-vendre-chantonnay-13135893_1_1529961843_10b11fd09b37c650eb0b4239a06b37fa_crop_295-222_.jpg',
+  name: 'Garage',
+  address: '12 rue de la soif, 75000 Paris')
+
+ bookings_attributes = [
+   {user: user1,
+    spot: spot1,
+    starts_at: '22/11/2018',
+    ends_at: '23/11/2018'
+   }
+ ]
+
+
+Booking.create!(bookings_attributes)
+
 # Ingredient.create!(ingredients_attributes)
 # cocktails_attributes = [
 #   { name: 'mojito', url: 'cocktails.jpg' },

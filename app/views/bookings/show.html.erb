@@ -1,23 +1,26 @@
-<h1>Booking</h1>
+<!-- nav -->
+<%= render 'shared/navbar' %>
+<!-- banner -->
+<%= render '/shared/spot_banner', spot: @booking.spot %>
 
-<p> <%= @booking.spot.name %></p>
-<p><%= @booking.spot.description %></p>
-<p><%= @booking.spot.address %></p>
+<div class="container">
+  <h2>Booking Summary</h2>
+  <h3>Address:</h2>
+  <p><%= @booking.spot.address %></p>
 
-<p> <strong> Arrival date :</strong> <%= @booking.starts_at %> </p>
-<p> <strong> Departure date :</strong> <%= @booking.ends_at %> </p>
+  <p> <strong> Arrival date :</strong> <%= @booking.starts_at.strftime("%d/%m/%Y") %> </p>
+  <p> <strong> Departure date :</strong> <%= @booking.ends_at.strftime("%d/%m/%Y") %> </p>
 
-
-
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  Add a review
-</button>
-<div class="collapse" id="collapseExample">
-  <div class="well">
-    <%= simple_form_for(@booking, url: booking_reviews_path(@booking), method: :post) do |f| %>
-      <%= f.input :review %>
-      <%= f.input :rating %>
-      <%= f.submit "Submit", class: "btn btn-primary" %>
+  <div class="padded">
+    <% if @booking.review.present? %>
+      <h3>Your review:</h3>
+      <%= render "shared/review", booking: @booking %>
+    <% elsif @booking.ends_at < Date.today %>
+      <%= render "bookings/booking_comment", booking: @booking %>
     <% end %>
   </div>
 </div>
+
+<!-- footer -->
+<%= render 'shared/footer' %>
+

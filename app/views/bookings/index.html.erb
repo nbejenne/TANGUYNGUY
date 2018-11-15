@@ -1,0 +1,24 @@
+<%= render "shared/navbar" %>
+
+<div class="container">
+  <h1 class= “padded-s”>Welcome back <%= current_user.nickname %>!</h1>
+    <h2>Next booking</h2>
+    <div class="row">
+      <% @next_bookings.each do |booking| %>
+        <div class="col-xs-12 col-md-4">
+          <%= render "shared/booking_card", booking: booking %>
+        </div>
+      <% end %>
+    </div>
+
+    <h2>Past booking</h2>
+    <div class="row">
+      <% @past_bookings.each do |booking| %>
+        <div class="col-xs-12 col-md-4">
+          <%= render "shared/booking_card", booking: booking %>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<%= render "shared/footer" %>

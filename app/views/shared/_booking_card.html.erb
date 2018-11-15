@@ -1,0 +1,25 @@
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=  booking.spot.photo.nil? ? cl_image_path(booking.spot.photo) : booking.spot.photo %>);">
+    <!-- <div class="card-category">Popular</div> -->
+    <div class="booking--card-description">
+      <h4><%= booking.spot.name %></h4>
+      <p><%= booking.starts_at.strftime("%d/%m/%Y") %></p>
+
+
+    <% if booking.ends_at < Date.today && booking.review.nil? %>
+      <%= link_to "Add a review", booking_path(booking), class: "btn btn-primary"  %>
+     <% else %>
+      <%= link_to "view", booking_path(booking), class: "btn btn-primary"  %>
+    <% end %>
+
+    </div>
+    <% if booking.spot.user.avatar.present? %>
+        <%= cl_image_tag(booking.spot.user.avatar) %>
+    <% else %>
+      <div class="card--avatar">
+        <%= image_tag('gg.jpg') %>
+      </div>
+    <% end %>
+
+    <!-- <a class="card-link" href="#" ></a> -->
+  </div>
+
