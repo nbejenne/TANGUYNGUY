@@ -7,7 +7,7 @@ class Host::SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
-     @spot_feature = SpotFeature.new
+    # @spot.spot_features.new
   end
 
   def create
@@ -33,6 +33,6 @@ class Host::SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:name, :description, :address, :photo, features_attributes: [:feature, :_destroy])
+    params.require(:spot).permit(:name, :description, :address, :photo, spot_features_attributes: [:id, :feature_id, :spot_id, :_destroy])
   end
 end
