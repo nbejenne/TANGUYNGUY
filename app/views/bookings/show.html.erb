@@ -16,8 +16,15 @@
       <h3>Your review:</h3>
       <%= render "shared/review", booking: @booking %>
     <% elsif @booking.ends_at < Date.today %>
-      <%= render "bookings/booking_comment", booking: @booking %>
+      <div>
+        <%= render "bookings/booking_comment", booking: @booking %>
+      <br>
+      </div>
     <% end %>
+
+    <div>
+      <%= link_to "Back Home", root_path, class: "btn btn-warning booking-home-button" %>
+    </div>
   </div>
 </div>
 
