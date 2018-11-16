@@ -17,7 +17,7 @@
       <% if user_signed_in? %>
         <div class="dropdown">
           <%=
-          cl_image_tag current_user.avatar.url(:avatar), class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu"  %>
+          cl_image_tag current_user.avatar.url(:avatar), class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu" , 'data-toggle': "dropdown"  %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Dashboard</a></li>
