@@ -1,24 +1,33 @@
 <%= render "shared/navbar" %>
 
 <div class="container">
-  <h1 class= “padded-s”>Welcome back <%= current_user.nickname %>!</h1>
-    <h2>Next booking</h2>
-    <div class="row">
-      <% @next_bookings.each do |booking| %>
-        <div class="col-xs-12 col-md-4">
-          <%= render "shared/booking_card", booking: booking %>
-        </div>
-      <% end %>
-    </div>
+  <div class="padded-s">
+    <h1 class= “padded-s”>Welcome back <%= current_user.nickname %>!</h1>
+  </div>
 
-    <h2>Past booking</h2>
-    <div class="row">
-      <% @past_bookings.each do |booking| %>
-        <div class="col-xs-12 col-md-4">
-          <%= render "shared/booking_card", booking: booking %>
-        </div>
-      <% end %>
-    </div>
+  <div class="tabs">
+    <a class="tab active" href="#" id="btn-next-booking">
+      <h3>Next booking</h3>
+    </a>
+    <a class="tab" href="#" id="btn-past-booking">
+      <h3>Past booking</h3>
+    </a>
+  </div>
+
+  <div class="row padded" id="next_bookings">
+    <% @next_bookings.each do |booking| %>
+      <div class="col-xs-12 col-md-4">
+        <%= render "shared/booking_card", booking: booking %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row padded hidden" id="past_bookings">
+    <% @past_bookings.each do |booking| %>
+      <div class="col-xs-12 col-md-4">
+        <%= render "shared/booking_card", booking: booking %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= render "shared/footer" %>
