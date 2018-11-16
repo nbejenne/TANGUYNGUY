@@ -4,7 +4,7 @@
 <%= render '/shared/spot_banner', spot: @spot %>
 
 <div class="container">
-  <div class="row padded">
+  <div class="row">
     <div class="col-md-8">
       <h2><%= @spot.address %></h2>
       <p class="spot-description"><%= @spot.description %></p>
@@ -25,13 +25,18 @@
     </div>
     <%= link_to "Back home", root_path, class: "btn btn-warning" %>
   </div>
+    <div class="row">
+      <div class= "spot--map">
+        <img alt='static Mapbox map of the San Francisco bay area' src="https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s+1f4287(<%= @spot.longitude %>,<%= @spot.latitude %>)/<%= @spot.longitude %>,<%= @spot.latitude %>,12.00/250x150@2x?access_token=pk.eyJ1IjoicHF1aW50cmllIiwiYSI6ImNqb2lnemY1cTAwa3Mzd3AyM3QwNXRzZWIifQ.p09r2dqaqMqk5uj4-4vk7w" >
+      <%= link_to "Back home", root_path, class: "btn btn-warning" %>
+      </div>
+    </div>
   <div class="row">
     <div class="col padded">
       <%= render 'reviews', spot: @spot %>
     </div>
   </div>
 </div>
-<img alt='static Mapbox map of the San Francisco bay area' src="https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s+1f4287(<%= @spot.longitude %>,<%= @spot.latitude %>)/<%= @spot.longitude %>,<%= @spot.latitude %>,15.00/300x300@2x?access_token=pk.eyJ1IjoicHF1aW50cmllIiwiYSI6ImNqb2lnemY1cTAwa3Mzd3AyM3QwNXRzZWIifQ.p09r2dqaqMqk5uj4-4vk7w" >
 <!-- footer -->
 <%= render 'shared/footer' %>
 
