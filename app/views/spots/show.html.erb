@@ -8,7 +8,11 @@
     <div class="col-md-8">
       <h2><%= @spot.address %></h2>
       <p class="spot-description"><%= @spot.description %></p>
-      <%= link_to "Back home", root_path, class: "btn btn-warning" %>
+      <ul class="list-inline">
+        <% @spot.features.each do |feature| %>
+        <li class="list-inline-item"><i class='<%= feature.picto %>'></i></li>
+        <% end %>
+      </ul>
     </div>
     <div class="col-md-4">
       <div class="form-wrapper">
@@ -19,6 +23,7 @@
         <% end %>
       </div>
     </div>
+    <%= link_to "Back home", root_path, class: "btn btn-warning" %>
   </div>
   <div class="row">
     <div class="col padded">

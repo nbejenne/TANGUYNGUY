@@ -3,14 +3,12 @@ puts 'Cleaning database...'
 
 User.destroy_all
 Spot.destroy_all
+Feature.destroy_all
 # Booking.destroy_all
 # Feature.destroy_all
 # SpotFeature.destroy_all
 
-
 puts 'Creating seed'
-
-
 
 #   User.create
 
@@ -125,21 +123,34 @@ spots_attributes = [
 
 Spot.create!(spots_attributes)
 
+# feature_attributes = [
+# {name: "running water",
+# picto: "<i class='fas fa-tint'></i>"},
+# {name: "electricity",
+# picto: "<i class='fas fa-bolt'></i>"},
+# {name: "wifi",
+# picto: "<i class='fas fa-wifi'></i>"},
+# {name: "TV",
+# picto: "<i class='fas fa-tv'></i>"},
+# {name: "xbox",
+# picto: "<i class='fab fa-xbox'></i>"},
+# {name: "camping spot",
+# picto: "<i class='fas fa-campground'></i>"},
+# ]
+
 feature_attributes = [
-{name: 'eau courante',
-picto: '*'},
-{name: 'electricité',
-picto: '*'},
-{name: 'wifi',
-picto: '*'},
-{name: 'TV',
-picto: '*'},
-{name: 'xbox',
-picto: '*'},
-{name: 'rechaud',
-picto: '*'},
-{name: 'serviette',
-picto: '*'}
+{name: "running water",
+picto: "fas fa-tint"},
+{name: "electricity",
+picto: "fas fa-bolt"},
+{name: "wifi",
+picto: "fas fa-wifi"},
+{name: "TV",
+picto: "fas fa-tv"},
+{name: "xbox",
+picto: "fab fa-xbox"},
+{name: "camping spot",
+picto: "fas fa-campground"},
 ]
 
 Feature.create!(feature_attributes)
