@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2018_11_15_103537) do
 
   create_table "spot_features", force: :cascade do |t|
     t.bigint "spot_id"
-    t.bigint "features_id"
+    t.bigint "feature_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["features_id"], name: "index_spot_features_on_features_id"
+    t.index ["feature_id"], name: "index_spot_features_on_feature_id"
     t.index ["spot_id"], name: "index_spot_features_on_spot_id"
   end
 
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_103537) do
 
   add_foreign_key "bookings", "spots"
   add_foreign_key "bookings", "users"
-  add_foreign_key "spot_features", "features", column: "features_id"
+  add_foreign_key "spot_features", "features"
   add_foreign_key "spot_features", "spots"
   add_foreign_key "spots", "users"
 end

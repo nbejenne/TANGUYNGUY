@@ -1,13 +1,24 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
-   <div class="row">
+  <h1 class= "padded-s">Welcome back <%= current_user.nickname %>!</h1>
+  <div class="tabs">
+    <a class="tab active" href="#">
+      <h3>My spots</h3>
+    </a>
+    <a class="tab" href="#">
+      <h3>My Bookings</h3>
+    </a>
+  </div>
+
+  <div class="row padded">
     <% @spots.each do |spot| %>
-      <div class="col-xs-12 col-sm-4">
-          <%= render 'shared/spot_card', spot: spot %>
+      <div class="col-sm-4">
+        <%= render 'shared/spot_card', spot: spot %>
       </div>
     <% end %>
   </div>
+  <%= link_to 'share a spot',new_host_spot_path, class: "btn btn-primary btn-block mb" %>
 </div>
 
 <%= render 'shared/footer' %>
