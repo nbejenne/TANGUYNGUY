@@ -7,7 +7,7 @@ class Host::SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
-    # @spot.spot_features.new
+    @spot.spot_features.new
   end
 
   def create

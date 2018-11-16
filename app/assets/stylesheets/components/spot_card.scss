@@ -5,8 +5,8 @@
   background-position: center;
   color: white;
   position: relative;
-  margin: 20px 10px;
-  border-radius: 5px;
+  margin: 0 10px 20px 10px;
+  border-radius: $border-radius-base;
 }
 .card-user {
   position: absolute;
@@ -57,13 +57,3 @@
   top: 8%;
 }
 
-.flexbox-wrapper {
-  display: flex;
-}
-
-#map {
-    flex: 0 0 450px;
-    height: 100vh;
-    position: sticky !important; /* !important to override Gmaps inline CSS */
-    top: 0 !important;
-  }
