@@ -8,6 +8,11 @@
     <div class="col-md-8">
       <h2><%= @spot.address %></h2>
       <p class="spot-description"><%= @spot.description %></p>
+      <ul class="list-inline">
+        <% @spot.features.each do |feature| %>
+        <li class="list-inline-item"><i class='<%= feature.picto %>'></i></li>
+        <% end %>
+      </ul>
     </div>
     <div class="col-md-4">
       <div class="form-wrapper">
