@@ -13,7 +13,9 @@
 
     </div>
     <% if booking.spot.user.avatar.present? %>
-        <%= cl_image_tag(booking.spot.user.avatar) %>
+         <div class="card--avatar">
+          <%= image_tag booking.spot.user.avatar.url(:avatar) %>
+      </div>
     <% else %>
       <div class="card--avatar">
         <%= image_tag('gg.jpg') %>
